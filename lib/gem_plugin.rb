@@ -106,10 +106,12 @@ module GemPlugin
     # avoids the RubyGems autorequire magic.
     def load(needs = {})
       sdir = File.join(Gem.dir, "specifications")
-      gems = Gem::SourceIndex.from_installed_gems(sdir)
+      # gems = Gem::SourceIndex.from_installed_gems(sdir)
+      gems = Gem::Specification
       needs = needs.merge({"gem_plugin" => INCLUDE})
       
-      gems.each do |path, gem|
+      # gems.each do |path, gem|
+      gems.each do |gem|
         # don't load gems more than once
         next if @gems.has_key? gem.name        
         check = needs.dup
