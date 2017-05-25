@@ -130,8 +130,8 @@ module GemPlugin
           # looks like no needs were set to false, so it's good
           
           # Previously was set wrong, we already have the correct gem path!
-          #gem_dir = File.join(Gem.dir, "gems", "#{gem.name}-#{gem.version}")
-          gem_dir = File.join(Gem.dir, "gems", path)
+          gem_dir = File.join(Gem.dir, "gems", "#{gem.name}-#{gem.version}")
+          # gem_dir = File.join(Gem.dir, "gems", path)
           
           require File.join(gem_dir, "lib", gem.name, "init.rb")
           @gems[gem.name] = gem_dir
